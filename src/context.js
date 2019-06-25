@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import items from './data'
 
 
 const RoomContext = React.createContext();
@@ -8,7 +9,14 @@ const RoomContext = React.createContext();
 
 class RoomProvider extends Component {
 
- state={};
+ state={
+  rooms: [],
+  sortedRooms: [],
+  featuredRooms: [],
+  loading: true
+ };
+//get Data
+
 
  static propTypes = {
   prop: PropTypes
@@ -16,7 +24,7 @@ class RoomProvider extends Component {
 
  render() {
   return (
-   <RoomContext.Provider value = "hello">
+   <RoomContext.Provider value = {{...this.state}}>
     {this.props.children}
    </RoomContext.Provider>
   )
@@ -25,4 +33,4 @@ class RoomProvider extends Component {
 
 const RoomConsumer = RoomContext.Consumer;
 
-export { RoomProvider, RoomConsumer, RoomContex };
+export { RoomProvider, RoomConsumer, RoomContext };
