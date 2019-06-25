@@ -4,7 +4,7 @@ import {FaCocktail, FaHiking, FaShuttleVan, FaBeer} from 'react-icons/fa'
 
 export default class Services extends Component {
  state={
-  services:[
+  servicesSector:[
    {
     icon: <FaCocktail/>,
     title:"free cocktails",
@@ -30,9 +30,9 @@ export default class Services extends Component {
  render() {
   return (
    <section className="services">
-    <Title title="services" />
+    <Title title="contacts" />
     <div className="services-center">
-     {this.state.services.map((item,index) =>{
+     {this.state.servicesSector.map((item,index) =>{
       return (
         <article key={index} className="service">
           <span>{item.icon}</span>

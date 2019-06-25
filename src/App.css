@@ -245,16 +245,20 @@ h6 {
   grid-row-gap: 2rem;
   grid-column-gap: 50px;
 }
+/*Настройка блока с иконками*/
+/*иконки*/
 .service span {
   display: inline-block;
   color: var(--primaryColor);
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
 }
+/*заголовок*/
 .services h6 {
   letter-spacing: var(--mainSpacing);
   text-transform: capitalize;
 }
+/*текст*/
 .services p {
   width: 80%;
   margin: 0 auto;
