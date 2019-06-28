@@ -14,6 +14,7 @@ class RoomProvider extends Component {
   sortedRooms: [],
   featuredRooms: [],
   loading: true
+  
  };
 //get Data
 
@@ -26,7 +27,8 @@ class RoomProvider extends Component {
    rooms, 
    featuredRooms, 
    sortedRooms: rooms, 
-   loading: false
+   loading: false 
+   //loading: true //появится загрузка
   })
  }
 
@@ -41,13 +43,20 @@ class RoomProvider extends Component {
   return tempItems
  }
 
+ getRoom = (slug) => {
+  let tempRooms = [...this.state.rooms];
+  const room = tempRooms.find(room => room.slug === slug);
+  return room;
+ }
+
  static propTypes = {
   prop: PropTypes
  }
 
  render() {
   return (
-   <RoomContext.Provider value = {{...this.state}}>
+   <RoomContext.Provider value = {{...this.state,
+    getRoom: this.getRoom}}>
     {this.props.children}
    </RoomContext.Provider>
   )

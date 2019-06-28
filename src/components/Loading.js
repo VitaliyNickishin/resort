@@ -1,13 +1,11 @@
-import React, { Component } from 'react'
-import ReactLoading from 'react-loading'
+import React from 'react'
+import loadingGif from '../images/gif/loading-gear.gif'
 
-const Example = ({type, color}) => (
- <ReactLoading 
-  type={type}
-  color={color}
-  height={667}
-  width={375}
- />
-);
-
-export default Example
+export default function Loading() {
+ return (
+  <div className="loading">
+   <h4>rooms data loading...</h4>
+   <img src={loadingGif} alt="loading"/>
+  </div>
+ )
+}
