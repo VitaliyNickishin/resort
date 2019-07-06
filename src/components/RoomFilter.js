@@ -5,10 +5,10 @@ import Title from '../components/Title'
 
 //get all unique values
 const getUnique = (items, value) => {
- 
+ return [...new Set(items.map(item => item[value]))];
 }
 
-export default function RoomFilter() {
+export default function RoomFilter({rooms}) {
  const context = useContext(RoomContext);
  //console.log(context);
  const {
@@ -24,6 +24,19 @@ export default function RoomFilter() {
   pets
  } = context;
  
+ //get unique types
+ let types = getUnique(rooms, "type");
+ //add all
+ types = ['all', ...types];
+ //map tp jsx
+ types = types.map((item, index) => {
+  return (
+   <option value={item} key={index}>
+   {item}
+   </option>
+   );
+ })
+ 
  return (
   <section className="filter-container">
    <Title title="search rooms" />
@@ -38,8 +51,7 @@ export default function RoomFilter() {
       className = "form-control"
       onChange = {handleChange}
      >
-      <option value="single">single</option>
-      <option value="double">double</option>
+      {types}
      </select>
     </div>
     {/* end select type */}
